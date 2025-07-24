@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Card.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1753384181016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1753384505716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,19 @@\n import React from \"react\";\n \n const Card = () => {\n-  return <div>Card</div>;\n+  const handleReadMore = () => {};\n+\n+  return (\n+    <div>\n+      <h2>Title</h2>\n+      <p>Datum</p>\n+      <img src=\"https://picsum.photos/200/300\" alt=\"Picture\" />\n+      <p>\n+        Lorem ipsum dolor sit amet, consectetur...{\" \"}\n+        <button onClick={handleReadMore}>Read More</button>\n+      </p>\n+    </div>\n+  );\n };\n \n export default Card;\n"
+                },
+                {
+                    "date": 1753388266729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,27 @@\n const Card = () => {\n   const handleReadMore = () => {};\n \n   return (\n-    <div>\n-      <h2>Title</h2>\n-      <p>Datum</p>\n-      <img src=\"https://picsum.photos/200/300\" alt=\"Picture\" />\n-      <p>\n+\n+\n+<div className=\"card bg-base-100 w-96 shadow-sm\">\n+  <div className=\"card-body\">\n+    <h2 className=\"card-title\">Card Title</h2>\n+    <p>Datum</p>\n+  </div>\n+  <figure>\n+    <img\n+      src=\"https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp\"\n+      alt=\"Shoes\" />\n+  </figure>\n+\n+  <p>\n         Lorem ipsum dolor sit amet, consectetur...{\" \"}\n         <button onClick={handleReadMore}>Read More</button>\n       </p>\n-    </div>\n+</div>\n+\n   );\n };\n \n export default Card;\n"
+                }
+            ],
+            "date": 1753384181016,
+            "name": "Commit-0",
+            "content": "import React from 'react'\n\nconst Card = () => {\n  return (\n    <div>Card</div>\n  )\n}\n\nexport default Card"
+        }
+    ]
+}

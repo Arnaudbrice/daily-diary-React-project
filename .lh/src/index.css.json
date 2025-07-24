@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/index.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1753383667358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1753384950187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n @import \"tailwindcss\";\n+@plugin \"daisyui\";\n"
+                }
+            ],
+            "date": 1753383667358,
+            "name": "Commit-0",
+            "content": "@import \"tailwindcss\";\n"
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+{
+    "sourceFile": "src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 30,
+            "patches": [
+                {
+                    "date": 1753383726362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1753383732916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,9 @@\n-import { useState } from 'react'\n+import { useState } from \"react\";\n \n-import './App.css'\n+import \"./App.css\";\n \n function App() {\n-\n-\n-  return (\n-    <>\n-\n-    </>\n-  )\n+  return <> hello world</>;\n }\n \n-export default App\n+export default App;\n"
+                },
+                {
+                    "date": 1753383903212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,6 @@\n import { useState } from \"react\";\n \n-import \"./App.css\";\n-\n function App() {\n   return <> hello world</>;\n }\n \n"
+                },
+                {
+                    "date": 1753383983124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,12 @@\n import { useState } from \"react\";\n+import Header from \"./components/Header\";\n \n function App() {\n-  return <> hello world</>;\n+  return (\n+    <>\n+      <Header />\n+    </>\n+  );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1753384203368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import { useState } from \"react\";\n import Header from \"./components/Header\";\n+import Cards from \"./components/Cards\";\n \n function App() {\n   return (\n     <>\n       <Header />\n+      <Cards />\n     </>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1753384866586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,15 @@\n import { useState } from \"react\";\n import Header from \"./components/Header\";\n import Cards from \"./components/Cards\";\n+import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n     <>\n       <Header />\n       <Cards />\n+      <Footer />\n     </>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1753384876169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import { useState } from \"react\";\n import Header from \"./components/Header\";\n import Cards from \"./components/Cards\";\n import Footer from \"./components/Footer\";\n \n"
+                },
+                {
+                    "date": 1753386239537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,16 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <>\n+    <div>\n       <Header />\n-      <Cards />\n+      <main>\n+        <Cards />\n+      </main>\n+\n       <Footer />\n-    </>\n+    </div>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1753386266905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n function App() {\n   return (\n     <div>\n       <Header />\n-      <main>\n+      <main className=\"bg-base-100 p-4\">\n         <Cards />\n       </main>\n \n       <Footer />\n"
+                },
+                {
+                    "date": 1753386284095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n function App() {\n   return (\n     <div>\n       <Header />\n-      <main className=\"bg-base-100 p-4\">\n+      <main className=\"bg-orange-100 p-4\">\n         <Cards />\n       </main>\n \n       <Footer />\n"
+                },
+                {
+                    "date": 1753386386964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div>\n+    <div className=\"bg-orange-100\">\n       <Header />\n-      <main className=\"bg-orange-100 p-4\">\n+      <main>\n         <Cards />\n       </main>\n \n       <Footer />\n"
+                },
+                {
+                    "date": 1753386413509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-100\">\n+    <div className=\"bg-orange-100 h-screen \">\n       <Header />\n       <main>\n         <Cards />\n       </main>\n"
+                },
+                {
+                    "date": 1753386427401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-100 h-screen \">\n+    <div className=\"bg-orange-600 h-screen \">\n       <Header />\n       <main>\n         <Cards />\n       </main>\n"
+                },
+                {
+                    "date": 1753386474078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-600 h-screen \">\n+    <div className=\"bg-orange-600 h-screen grid grid-rows-[auto 1fr auto] \">\n       <Header />\n       <main>\n         <Cards />\n       </main>\n"
+                },
+                {
+                    "date": 1753386525639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-600 h-screen grid grid-rows-[auto 1fr auto] \">\n+    <div className=\"bg-orange-600 min-h-screen grid grid-rows-[auto 1fr auto] \">\n       <Header />\n       <main>\n         <Cards />\n       </main>\n"
+                },
+                {
+                    "date": 1753386550194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-600 min-h-screen grid grid-rows-[auto 1fr auto] \">\n+    <div className=\"bg-orange-600 min-h-screen grid grid-rows-[auto_1fr_auto] \">\n       <Header />\n       <main>\n         <Cards />\n       </main>\n"
+                },
+                {
+                    "date": 1753386574241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-600 min-h-screen grid grid-rows-[auto_1fr_auto] \">\n+    <div className=\"bg-orange-600 min-h-screen w-screen grid grid-rows-[auto_1fr_auto] \">\n       <Header />\n       <main>\n         <Cards />\n       </main>\n"
+                },
+                {
+                    "date": 1753386636772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-600 min-h-screen w-screen grid grid-rows-[auto_1fr_auto] \">\n+    <div className=\"bg-orange-600 min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n       <Header />\n       <main>\n         <Cards />\n       </main>\n"
+                },
+                {
+                    "date": 1753386682675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n function App() {\n   return (\n     <div className=\"bg-orange-600 min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n-      <Header />\n+      <Header className=\"bg-orange-600 flex justify-around \" />\n       <main>\n         <Cards />\n       </main>\n \n"
+                },
+                {
+                    "date": 1753386708676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n function App() {\n   return (\n     <div className=\"bg-orange-600 min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n-      <Header className=\"bg-orange-600 flex justify-around \" />\n+      <Header className=\"bg-orange-600 flex justify-around  items-center gap-4\" />\n       <main>\n         <Cards />\n       </main>\n \n"
+                },
+                {
+                    "date": 1753386750599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n function App() {\n   return (\n     <div className=\"bg-orange-600 min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n-      <Header className=\"bg-orange-600 flex justify-around  items-center gap-4\" />\n+      <Header  />\n       <main>\n         <Cards />\n       </main>\n \n"
+                },
+                {
+                    "date": 1753386850782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n import Footer from \"./components/Footer\";\n \n function App() {\n   return (\n-    <div className=\"bg-orange-600 min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n-      <Header  />\n-      <main>\n+    <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n+      <Header />\n+      <main className=\"bg-orange-600 \">\n         <Cards />\n       </main>\n \n       <Footer />\n"
+                },
+                {
+                    "date": 1753392464229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,17 @@\n+import React, { useState } from \"react\";\n+\n import Header from \"./components/Header\";\n import Cards from \"./components/Cards\";\n import Footer from \"./components/Footer\";\n \n function App() {\n+  const [diaries, setDiaries] = useState(() => {\n+    return JSON.parse(localStorage.getItem(\"cards\")) || [];\n+  });\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n-      <Header />\n+      <Header diaries={diaries} setDiaries={setDiaries} />\n       <main className=\"bg-orange-600 \">\n         <Cards />\n       </main>\n \n"
+                },
+                {
+                    "date": 1753392583248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n       <Header diaries={diaries} setDiaries={setDiaries} />\n       <main className=\"bg-orange-600 \">\n-        <Cards />\n+        <Cards diaries={diaries} />\n       </main>\n \n       <Footer />\n     </div>\n"
+                },
+                {
+                    "date": 1753393008113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     return JSON.parse(localStorage.getItem(\"cards\")) || [];\n   });\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n-      <Header diaries={diaries} setDiaries={setDiaries} />\n+      <Header />\n       <main className=\"bg-orange-600 \">\n         <Cards diaries={diaries} />\n       </main>\n \n"
+                },
+                {
+                    "date": 1753393967066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n       <Header />\n       <main className=\"bg-orange-600 \">\n-        <Cards diaries={diaries} />\n+        <Cards />\n       </main>\n \n       <Footer />\n     </div>\n"
+                },
+                {
+                    "date": 1753394251366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n       <Header />\n       <main className=\"bg-orange-600 \">\n-        <Cards />\n+        <Cards diaries={diaries} />\n       </main>\n \n       <Footer />\n     </div>\n"
+                },
+                {
+                    "date": 1753394396886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n       <Header />\n       <main className=\"bg-orange-600 \">\n-        <Cards diaries={diaries} />\n+        <Cards />\n       </main>\n \n       <Footer />\n     </div>\n"
+                },
+                {
+                    "date": 1753394681951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,33 @@\n function App() {\n   const [diaries, setDiaries] = useState(() => {\n     return JSON.parse(localStorage.getItem(\"cards\")) || [];\n   });\n+\n+\n+    const handleSave = (diary, event) => {\n+    event.preventDefault();\n+    console.log(\"diaries\", diaries);\n+    console.log(\"diary\", diary);\n+\n+    localStorage.setItem(\"cards\", JSON.stringify([diary, ...diaries]));\n+    setDiaries([diary, ...diaries]);\n+    /*   for (const card of diaries) {\n+      if (card.date !== diary.date) {\n+        // Add the new card to the local storage\n+        localStorage.setItem(\"cards\", JSON.stringify([diary, ...diaries]));\n+        setDiaries([diary, ...diaries]);\n+        break;\n+      }\n+    } */\n+\n+    // Close the modal\n+    document.getElementById(\"my_modal_3\").close();\n+  };\n+\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n-      <Header />\n+      <Header  onHandleSave={handleSave} />\n       <main className=\"bg-orange-600 \">\n         <Cards />\n       </main>\n \n"
+                },
+                {
+                    "date": 1753394754260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n   return (\n     <div className=\"min-h-screen w-full grid grid-rows-[auto_1fr_auto] \">\n       <Header onHandleSave={handleSave} />\n       <main className=\"bg-orange-600 \">\n-        <Cards />\n+        <Cards diaries={diaries} />\n       </main>\n \n       <Footer />\n     </div>\n"
+                },
+                {
+                    "date": 1753394860858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,18 @@\n     event.preventDefault();\n     console.log(\"diaries\", diaries);\n     console.log(\"diary\", diary);\n \n-    localStorage.setItem(\"cards\", JSON.stringify([diary, ...diaries]));\n-    setDiaries([diary, ...diaries]);\n-    /*   for (const card of diaries) {\n+    /*  localStorage.setItem(\"cards\", JSON.stringify([diary, ...diaries]));\n+    setDiaries([diary, ...diaries]); */\n+    for (const card of diaries) {\n       if (card.date !== diary.date) {\n         // Add the new card to the local storage\n         localStorage.setItem(\"cards\", JSON.stringify([diary, ...diaries]));\n         setDiaries([diary, ...diaries]);\n         break;\n       }\n-    } */\n+    }\n \n     // Close the modal\n     document.getElementById(\"my_modal_3\").close();\n   };\n"
+                }
+            ],
+            "date": 1753383726362,
+            "name": "Commit-0",
+            "content": "import { useState } from 'react'\n\nimport './App.css'\n\nfunction App() {\n\n\n  return (\n    <>\n\n    </>\n  )\n}\n\nexport default App\n"
+        }
+    ]
+}

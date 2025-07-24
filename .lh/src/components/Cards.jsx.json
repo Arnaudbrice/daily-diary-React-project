@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Cards.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1753384168440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1753384508922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import React from \"react\";\n \n const Cards = () => {\n-  return <div>Cards</div>;\n+  return <div>\n+\n+  </div>;\n };\n \n export default Cards;\n"
+                },
+                {
+                    "date": 1753384751704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,12 @@\n-import React from \"react\";\n+import React, { useEffect, useState } from \"react\";\n \n const Cards = () => {\n+\n+\n+ const [diaries, setDiaries] =useState(()=>{\n+    return JSON.parse(localStorage.getItem(\"cards\"))||[];\n+  })\n   return <div></div>;\n };\n \n export default Cards;\n"
+                }
+            ],
+            "date": 1753384168440,
+            "name": "Commit-0",
+            "content": "import React from 'react'\n\nconst Cards = () => {\n  return (\n    <div>Cards</div>\n  )\n}\n\nexport default Cards"
+        }
+    ]
+}
