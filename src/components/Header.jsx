@@ -3,17 +3,21 @@ import Dialog from "./Dialog";
 
 const Header = props => {
   return (
-    <div className="bg-grey-600 flex justify-around  items-center gap-4 p-4">
+    <div className="flex items-center justify-around gap-4 p-4 text-xl bg-amber-600 ">
       <h1 className="mr-auto">Daily Diary</h1>
 
       <div>
         <button
-          className="btn btn-info"
+          className="btn bg-white text-[#53402D] border border-[#EDE6DE]]  shadow transition-transform duration-200 hover:scale-95 hover:drop-shadow-[0_0_10px_#53402D] "
           onClick={() => document.getElementById("my_modal_3").showModal()}
         >
-          open modal
+          Add a new Diary Entry
         </button>
-        <Dialog handleSave={props.onHandleSave} />
+        <Dialog
+          handleSave={props.onHandleSave}
+          setDiary={props.setDiary}
+          diary={props.diary}
+        />
       </div>
     </div>
   );

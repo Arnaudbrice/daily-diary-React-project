@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1753384856177,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1753463837814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,13 @@\n import React from \"react\";\n \n const Footer = () => {\n-  return <div>Footer</div>;\n+  return (\n+    <div>\n+      <div className=\"flex justify-center items-center\">\n+        <p className=\"text-center text-xl\">Made with ❤️ by Arnaud</p>\n+      </div>\n+    </div>\n+  );\n };\n \n export default Footer;\n"
+                },
+                {
+                    "date": 1753463939383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n \n const Footer = () => {\n   return (\n     <div>\n-      <div className=\"flex justify-center items-center py-4\">\n-        <p className=\"text-center text-xl\">Made with ❤️ by Arnaud</p>\n+      <div className=\"flex justify-center items-center py-2\">\n+        <p className=\"text-center text-xl\">©{new Date().getFullYear()} Daily Diary</p>\n       </div>\n     </div>\n   );\n };\n"
                 }
             ],
             "date": 1753384856177,

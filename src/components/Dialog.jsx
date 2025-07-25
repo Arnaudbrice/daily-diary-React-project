@@ -1,29 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Dialog = props => {
-  const [diary, setDiary] = useState({
-    title: "",
-    date: "",
-    imageUrl: "",
-    text: ""
-  });
+  const { diary, setDiary } = props;
 
   const handleChange = event => {
-    const { name, value } = event.target;
-    setDiary(prevDiary => {
-      return { ...prevDiary, [name]: value };
-    });
+    const { name, type } = event.target;
+
+    // Handle file input differently from other inputs
+    if (type === "file") {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          setDiary(prevDiary => ({
+            ...prevDiary,
+            imageUrl: e.target.result // base64 string
+          }));
+        };
+        reader.readAsDataURL(file);
+      }
+    } else {
+      // Handle all other inputs normally
+      const { value } = event.target;
+      setDiary(prevDiary => ({
+        ...prevDiary,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = event => {
     props.handleSave(diary, event);
-    // clear input fields
-    setDiary({
-      title: "",
-      date: "",
-      imageUrl: "",
-      text: ""
-    });
   };
   return (
     <dialog id="my_modal_3" className="modal  sm:modal-middle ">
@@ -37,14 +44,18 @@ const Dialog = props => {
 
         <form onSubmit={handleSubmit}>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 grid grid-cols-fr mx-auto">
-            <legend className="fieldset-legend text-xl">Add a new card</legend>
-            <label htmlFor="title" className="label text-lg"></label>
+            <legend className="fieldset-legend text-2xl text-center">
+              Add a new card
+            </legend>
+            <label htmlFor="title" className="label text-lg">
+              Title
+            </label>
             <input
               type="text"
               name="title"
               value={diary.title}
               onChange={handleChange}
-              className="input input-warning"
+              className="input border border-amber-600"
               placeholder="Title"
             />
             <label htmlFor="date" className="label text-lg">
@@ -55,18 +66,21 @@ const Dialog = props => {
               name="date"
               value={diary.date}
               onChange={handleChange}
-              className="input input-warning"
+              className="input border border-amber-600"
               placeholder="Date"
               required
             />
             <label htmlFor="imageUrl" className="label text-lg">
               Image
             </label>
+            {/* input type file don't needa value */}
+            {/* we use a key props here to force the input to be re-rendered when the imageUrl changes (otherwise input file will use It old value) */}
             <input
+              key={diary.imageUrl}
               type="file"
-              className="file-input file-input-warning"
+              accept="image/*"
+              className="file-input bg-amber-600 hover:bg-amber-500 border border-amber-600"
               name="imageUrl"
-              value={diary.imageUrl}
               onChange={handleChange}
             />
             <label htmlFor="text" className="label text-lg">
@@ -76,10 +90,12 @@ const Dialog = props => {
               name="text"
               value={diary.text}
               onChange={handleChange}
-              className="textarea textarea-warning h-24"
+              className="textarea border border-amber-600 h-24"
               placeholder="text"
             />
-            <button className="btn btn-info mt-4">Save</button>
+            <button className="btn bg-amber-600 border border-amber-600 hover:bg-amber-500 mt-4">
+              Save
+            </button>
           </fieldset>
         </form>
       </div>
