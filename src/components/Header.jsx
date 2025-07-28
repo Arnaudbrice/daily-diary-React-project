@@ -1,10 +1,14 @@
 import React from "react";
+
 import Dialog from "./Dialog";
+import { Link } from "react-router";
 
 const Header = props => {
   return (
     <div className="flex items-center justify-around gap-4 p-4 text-xl bg-amber-600 ">
-      <h1 className="mr-auto">Daily Diary</h1>
+      <h1 className="mr-auto">
+        <Link to="/">Daily Diary</Link>
+      </h1>
 
       <div>
         <button
@@ -17,6 +21,7 @@ const Header = props => {
           handleSave={props.onHandleSave}
           setDiary={props.setDiary}
           diary={props.diary}
+          fileInputRef={props.fileInputRef}
         />
       </div>
     </div>

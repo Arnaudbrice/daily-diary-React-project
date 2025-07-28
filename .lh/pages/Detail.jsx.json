@@ -1,0 +1,30 @@
+{
+    "sourceFile": "pages/Detail.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1753727316052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1753727338257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,12 +4,14 @@\n const Detail = () => {\n   const { diaryId } = useParams();\n   return (\n     <div>\n-      Detail\n+\n       <p>\n         <Link to=\"/\">return to Home</Link>\n       </p>\n+\n+      <h2>Detail</h2>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1753727594806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,47 @@\n import { useParams } from \"react-router\";\n \n const Detail = () => {\n   const { diaryId } = useParams();\n+\n+  const findDiary = diaries => {\n+    return diaries.find(diary => diary.id === diaryId);\n+  };\n   return (\n     <div>\n       <p>\n         <Link to=\"/\">return to Home</Link>\n       </p>\n \n       <h2>Detail</h2>\n+\n+      <div className=\"card  bg-[#ffffff]  border-[#EDE6DE] text-[#362617] hover:shadow-lg   text-center rounded-lg  shadow transition-transform duration-200 hover:scale-105 hover:drop-shadow-[0_0_10px_#362617] h-full \">\n+        <div className=\"card-body items-center text-center\">\n+          <h2 className=\"card-title justify-center font-bold border-b-2 border-b-[#362617]/20 pb-2 w-full\">\n+            {props.diary.title}\n+          </h2>\n+          <p className=\" justify-center  \">{props.diary.date}</p>\n+        </div>\n+        <figure>\n+          <img\n+            className=\"block w-full h-auto aspect-square object-cover\"\n+            src={props.diary.imageUrl}\n+            alt={\"image\" + props.diary.imageUrl}\n+          />\n+        </figure>\n+\n+        <div className=\"flex justify-around gap-x-8  px-4 items-center  \">\n+          <p>{props.diary.text.substring(0, 20)}...</p>\n+          <div className=\"card-actions justify-end\">\n+            <button\n+              onClick={() => navigate(\"/diary/:diaryId\")}\n+              className=\"btn bg-amber-600 my-4 hover:bg-amber-500\"\n+            >\n+              Read More\n+            </button>\n+          </div>\n+        </div>\n+      </div>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1753727726200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n         <div className=\"card-body items-center text-center\">\n           <h2 className=\"card-title justify-center font-bold border-b-2 border-b-[#362617]/20 pb-2 w-full\">\n             {findDiary.title}\n           </h2>\n-          <p className=\" justify-center  \">{props.diary.date}</p>\n+          <p className=\" justify-center  \">{findDiary.date}</p>\n         </div>\n         <figure>\n           <img\n             className=\"block w-full h-auto aspect-square object-cover\"\n"
+                }
+            ],
+            "date": 1753727316051,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { useParams } from \"react-router\";\n\nconst Detail = () => {\n  const { diaryId } = useParams();\n  return (\n    <div>\n      Detail\n      <p>\n        <Link to=\"/\">return to Home</Link>\n      </p>\n    </div>\n  );\n};\n\nexport default Detail;\n"
+        }
+    ]
+}
