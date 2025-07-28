@@ -128,9 +128,11 @@ function App() {
 
   return (
     <div
-      className={` font-[Outfit] min-h-screen w-full grid ${
-        isDetailPage ? "grid-rows-[1fr_auto]" : "grid-rows-[auto_1fr_auto]"
-      } `}
+      className={`font-[Outfit] min-h-screen w-full ${
+        isDetailPage
+          ? "grid grid-rows-[1fr_auto]" // Only main + footer
+          : "grid grid-rows-[auto_1fr_auto]" // Header + main + footer
+      }`}
     >
       <main className="bg-[#FAF7F4] bg-[url('https://transparenttextures.com/patterns/dark-dotted-2.png')]  h-full pb-100">
         <Routes>
