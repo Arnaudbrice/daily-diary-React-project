@@ -8,8 +8,8 @@ import Footer from "./components/Footer";
 
 import photo from "./assets/images/photo.png";
 import { Routes, Route, useLocation } from "react-router";
-import Detail from "../pages/Detail";
-import NotFound from "../pages/NotFound"
+import Detail from "./pages/Detail";
+import NotFound from "./pages/NotFound"
 
 function App() {
   const [diaries, setDiaries] = useState(() => {
