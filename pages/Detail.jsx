@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const Detail = props => {
   const { diaryId } = useParams();
@@ -14,7 +15,9 @@ const Detail = props => {
   return (
     <div>
       <p className="text-amber-800 text-xl my-8 ml-4 link link-hover  ">
-        <Link to="/">return to Home</Link>
+        <Link to="/">
+          <FaArrowAltCircleLeft size={48} /> return to Home
+        </Link>
       </p>
 
       <h2 className="text-black text-center text-2xl font-bold my-8 bg-white max-w-sm mx-auto rounded-lg">

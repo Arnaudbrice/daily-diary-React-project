@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -16,6 +16,27 @@ function App() {
     return savedDiaries.sort((a, b) => new Date(b.date) - new Date(a.date));
   });
 
+  // The useEffect is called after the initial rendering to set up a listener for the storage event.
+  // It does not update the state during the initial render but will handle changes to localStorage
+  // triggered by the storage event (e.g., changes made in another tab or window).
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const updatedDiaries = JSON.parse(localStorage.getItem("cards")) || [];
+      setDiaries(
+        updatedDiaries.sort((a, b) => new Date(b.date) - new Date(a.date))
+      );
+    };
+
+    // Listen for storage events
+    window.addEventListener("storage", handleStorageChange);
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  // Initial state for the diary form
   const [diary, setDiary] = useState({
     title: "",
     date: "",
@@ -44,7 +65,11 @@ function App() {
       }
     }
     if (emptyFields.length > 0) {
-      return toast.error("please fill all the fields, image is not required");
+      return toast.error(
+        <div className="text-center mx-0">
+          please fill all the fields <br />( image optional )
+        </div>
+      );
     }
 
     // Set default image if no image provided
@@ -81,7 +106,7 @@ function App() {
 
       // Close the modal
       document.getElementById("my_modal_3").close();
-      return toast.success("card added successfully");
+      return toast.success("Diary Entry Successfully Saved to Local Storage!");
     }
     // Check if the date already exists
 
@@ -109,7 +134,7 @@ function App() {
 
       // Close the modal
       document.getElementById("my_modal_3").close();
-      return toast.success("card added successfully");
+      return toast.success("Diary Entry Successfully Saved to Local Storage!");
     } else {
       /*  setDiary(prev => ({
         ...prev,
@@ -119,7 +144,9 @@ function App() {
         text: diary.text
       })); */
 
-      return toast.error("A card with the same date already exists");
+      return toast.error(
+        "A Diary Entry With the Same Date Already Exists in Your Local Storage!"
+      );
     }
   };
 
@@ -134,45 +161,51 @@ function App() {
           : "grid grid-rows-[auto_1fr_auto]" // Header + main + footer
       }`}
     >
-      <main className="bg-[#FAF7F4] bg-[url('https://transparenttextures.com/patterns/dark-dotted-2.png')]  h-full pb-100">
+      {!isDetailPage && (
         <Routes>
           <Route
             path="/"
             element={
-              <>
-                <Header
-                  onHandleSave={handleSave}
-                  diary={diary}
-                  setDiary={setDiary}
-                  fileInputRef={fileInputRef}
-                />
-                <ToastContainer
-                  className="my-16"
-                  position="top-center"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="dark"
-                  transition:Bounce
-                  limit={3} //only 3 notifications at the same time
-                />
-                <Cards diaries={diaries} />
-              </>
+              <Header
+                onHandleSave={handleSave}
+                diary={diary}
+                setDiary={setDiary}
+                fileInputRef={fileInputRef}
+              />
             }
           />
-          <Route
-            path="/diary/:diaryId"
-            element={<Detail diaries={diaries} />}
-          />
         </Routes>
-        {/* <Cards diaries={diaries} /> */}
-      </main>
+      )}
 
+      <main className="bg-[#FAF7F4] bg-[url('https://transparenttextures.com/patterns/dark-dotted-2.png')]  h-full pb-100 ">
+        {!isDetailPage ? (
+          <>
+            <ToastContainer
+              className="my-16 text-lg "
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+              transition:Bounce
+              limit={3}
+            />
+            <Cards diaries={diaries} />
+          </>
+        ) : (
+          <Routes>
+            <Route
+              path="/diary/:diaryId"
+              element={<Detail diaries={diaries} />}
+            />
+          </Routes>
+        )}
+      </main>
       <Footer />
     </div>
   );
