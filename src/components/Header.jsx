@@ -5,8 +5,8 @@ import { Link } from "react-router";
 
 const Header = props => {
   return (
-    <div className="flex items-center justify-around gap-4 p-4 text-xl bg-amber-600 ">
-      <h1 className="mr-auto">
+    <div className="flex flex-col sm:flex-row items-center justify-around gap-4 p-4 text-xl bg-amber-600 ">
+      <h1 className="mr-none sm:mr-auto">
         <Link to="/">Daily Diary</Link>
       </h1>
 
