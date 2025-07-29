@@ -46,7 +46,12 @@ const Dialog = props => {
           </button>
         </form>
 
+
+
         <form onSubmit={handleSubmit}>
+
+
+
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 grid grid-cols-fr mx-auto">
             <legend className="fieldset-legend text-2xl text-center">
               Add a new card

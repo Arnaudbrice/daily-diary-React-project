@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import NotFound from "./NotFound"
 
 const Detail = props => {
   const { diaryId } = useParams();
@@ -12,8 +13,12 @@ const Detail = props => {
 
   const theFoundedDiary = findDiary();
   console.log("theFoundedDiary", theFoundedDiary);
+
+if(!theFoundedDiary){
+  return <NotFound />
+}
   return (
-    <div>
+    <div className="bg-[#FAF7F4] bg-[url('https://transparenttextures.com/patterns/dark-dotted-2.png')]">
       <p className="text-amber-800 text-xl my-8 ml-4 link link-hover  ">
         <Link to="/">
           <FaArrowAltCircleLeft size={48} /> return to Home
