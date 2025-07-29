@@ -35,6 +35,7 @@ const Dialog = props => {
   const handleSubmit = event => {
     props.handleSave(diary, event);
   };
+
   return (
     <dialog id="my_modal_3" className="modal  sm:modal-middle ">
       <div className="modal-box ">
