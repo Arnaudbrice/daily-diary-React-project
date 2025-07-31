@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import photo from "./assets/images/photo.png";
 import { Routes, Route, useLocation } from "react-router";
 import Detail from "./pages/Detail";
-import NotFound from "./pages/NotFound"
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [diaries, setDiaries] = useState(() => {
@@ -151,67 +151,64 @@ function App() {
     }
   };
 
-const location = useLocation();
-const isHome = location.pathname === '/';
-const isDetailPage = location.pathname.startsWith('/diary/');
-const isNotFound = !isHome && !isDetailPage;
-
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const isDetailPage = location.pathname.startsWith("/diary/");
+  const isNotFound = !isHome && !isDetailPage;
 
   return (
- <div
-    className={`font-[Outfit] min-h-screen w-full ${
-      isDetailPage || isNotFound
-        ? "grid grid-rows-[1fr_auto]" // 1 row for content + footer
-        : "grid grid-rows-[auto_1fr_auto]" // header + content + footer
-    }`}
-  >
-    <Routes>
-      {/* Home Route */}
-      <Route
-        path="/"
-        element={
-          <Header
-            onHandleSave={handleSave}
-            diary={diary}
-            setDiary={setDiary}
-            fileInputRef={fileInputRef}
-          />
-        }
-      />
-
-      {/* Detail Page Route */}
-      <Route
-        path="/diary/:diaryId"
-        element={<Detail diaries={diaries} />}
-      />
-
-      {/* Catch-all Not Found Route */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-
-    {/* Only show main content on home page */}
-    {isHome && (
-      <main className="bg-[#FAF7F4] bg-[url('https://transparenttextures.com/patterns/dark-dotted-2.png')] h-full pb-100">
-        <ToastContainer
-          className="my-16 text-lg"
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-          limit={2}
+    <div
+      className={`font-[Outfit] min-h-screen w-full ${
+        isDetailPage || isNotFound
+          ? "grid grid-rows-[1fr_auto]" // 1 row for content + footer
+          : "grid grid-rows-[auto_1fr_auto]" // header + content + footer
+      }`}
+    >
+      <Routes>
+        {/* Home Route */}
+        <Route
+          path="/"
+          element={
+            <Header
+              onHandleSave={handleSave}
+              diary={diary}
+              setDiary={setDiary}
+              fileInputRef={fileInputRef}
+            />
+          }
         />
-        <Cards diaries={diaries} />
-      </main>
-    )}
 
-    <Footer />
-  </div>
+        {/* Detail Page Route */}
+        <Route path="/diary/:diaryId" element={<Detail diaries={diaries} />} />
+
+        {/* Catch-all Not Found Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+      {/* Only show main content on home page */}
+      {isHome && (
+        <main className="bg-[#FAF7F4] bg-[url('https://transparenttextures.com/patterns/dark-dotted-2.png')] h-full pb-100">
+          <ToastContainer
+            className="my-16 text-lg"
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            limit={2}
+            transition={Bounce}
+          />
+          <Cards diaries={diaries} />
+        </main>
+      )}
+
+      <Footer />
+    </div>
   );
 }
 

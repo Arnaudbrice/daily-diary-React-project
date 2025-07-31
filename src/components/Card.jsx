@@ -22,15 +22,18 @@ const Card = props => {
         />
       </figure>
 
-      <div className="flex justify-around gap-x-8  px-4 items-center  ">
-        <p>{props.diary.text.substring(0, 20)}...</p>
+      <div className="flex justify-around gap-x-8  px-4 items-center">
+        <p>
+          {props.diary.text.substring(0, 10)}
+          {props.diary.text.length > 10 && " ..."}
+        </p>
         <div className="card-actions justify-end">
           <button
             onClick={() => navigate(`/diary/${props.diary.id}`)}
             className="btn bg-amber-600 my-4 hover:bg-amber-500"
           >
             Read More
-          </button>
+          </button>{" "}
         </div>
       </div>
     </div>
